@@ -1,3 +1,4 @@
+<?php require "login/loginheader.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -122,6 +123,8 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12">
+		
+		
 			<ol>
 				<li>
 					Lorem ipsum dolor sit amet
@@ -149,7 +152,14 @@
 				</li>
 			</ol>
 		</div>
+	
+    
+      
+	
 	</div>
+	<div class="form-signin">
+        <a href="login/logout.php" class="btn btn-default btn-lg btn-block">Logout</a>
+      </div>
 </div>
 
     <script src="js/jquery.min.js"></script>
