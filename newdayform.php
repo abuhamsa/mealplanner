@@ -1,4 +1,4 @@
-<?php
+<?php require "login/loginheader.php";
 $link = mysqli_connect("localhost","root","peniskopf2")  or die("failed to connect to server !!");
 mysqli_select_db($link,"mealplanner");
 if(isset($_REQUEST['submit']))
@@ -23,4 +23,7 @@ $insqDbtb="INSERT INTO `mealplanner`.`dayplan_simple`
 mysqli_query($link,$insqDbtb) or die(mysqli_error($link));
 }
 }
+header("Location: index.php");
+exit();
+
 ?>

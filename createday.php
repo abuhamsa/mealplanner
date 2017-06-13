@@ -7,9 +7,6 @@
 
     <title>Mealplanner</title>
 
-    <meta name="description" content="Source code generated using layoutit.com">
-    <meta name="author" content="LayoutIt!">
-
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
@@ -23,20 +20,20 @@
 <fieldset>
 
 <!-- Form Name -->
-<legend>Form Name</legend>
+<legend>Neuen Tag erfassen</legend>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="datum">Datum</label>  
+  <label class="col-md-1 control-label" for="datum">Datum</label>  
   <div class="col-md-4">
-  <input id="datum" name="datum" type="text" placeholder="" class="form-control input-md" required="">
+  <input id="datum" name="datum" type="date" placeholder="" class="form-control input-md" required="">
     
   </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="mittag_n">Mittag Natü</label>  
+  <label class="col-md-1 control-label" for="mittag_n">Mittag Natü</label>  
   <div class="col-md-4">
   <input id="mittag_n" name="mittag_n" type="text" placeholder="Mittag Natü" class="form-control input-md" required="">
     
@@ -45,7 +42,7 @@
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="mittag_j">Mittag Jan</label>  
+  <label class="col-md-1 control-label" for="mittag_j">Mittag Jan</label>  
   <div class="col-md-4">
   <input id="mittag_j" name="mittag_j" type="text" placeholder="Mittag Jan" class="form-control input-md" required="">
     
@@ -54,7 +51,7 @@
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="abend_n">Abend Natü</label>  
+  <label class="col-md-1 control-label" for="abend_n">Abend Natü</label>  
   <div class="col-md-4">
   <input id="abend_n" name="abend_n" type="text" placeholder="Abend Natü" class="form-control input-md" required="">
     
@@ -63,7 +60,7 @@
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="abend_j">Abend Jan</label>  
+  <label class="col-md-1 control-label" for="abend_j">Abend Jan</label>  
   <div class="col-md-4">
   <input id="abend_j" name="abend_j" type="text" placeholder="Abend Jan" class="form-control input-md" required="">
     
@@ -72,7 +69,7 @@
 
 <!-- Button -->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="singlebutton"></label>
+  <label class="col-md-1 control-label" for="singlebutton"></label>
   <div class="col-md-4">
     <button type="submit" id="submit" name="submit" class="btn btn-primary">Submit</button>
   </div>
