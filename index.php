@@ -1,12 +1,12 @@
 <?php require "login/loginheader.php"; ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Bootstrap 3, from LayoutIt!</title>
+    <title>Mealplanner</title>
 
     <meta name="description" content="Source code generated using layoutit.com">
     <meta name="author" content="LayoutIt!">
@@ -29,98 +29,48 @@
 			<p>
 				<a class="btn" href="#">View details »</a>
 			</p>
-			<table class="table table-bordered table-hover">
+		
+			<table class="table table-striped table-bordered table-hover">
 				<thead>
 					<tr>
-						<th>
-							#
-						</th>
-						<th>
-							Product
-						</th>
-						<th>
-							Payment Taken
-						</th>
-						<th>
-							Status
-						</th>
+						<th>Datum</th>
+						<th>Mittag - Natü</th>
+						<th>Mittag - Jan</th>
+						<th>Abend - Natü</th>
+						<th>Abend - Jan</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>
-							1
-						</td>
-						<td>
-							TB - Monthly
-						</td>
-						<td>
-							01/04/2012
-						</td>
-						<td>
-							Default
-						</td>
-					</tr>
-					<tr class="active">
-						<td>
-							1
-						</td>
-						<td>
-							TB - Monthly
-						</td>
-						<td>
-							01/04/2012
-						</td>
-						<td>
-							Approved
-						</td>
-					</tr>
-					<tr class="success">
-						<td>
-							2
-						</td>
-						<td>
-							TB - Monthly
-						</td>
-						<td>
-							02/04/2012
-						</td>
-						<td>
-							Declined
-						</td>
-					</tr>
-					<tr class="warning">
-						<td>
-							3
-						</td>
-						<td>
-							TB - Monthly
-						</td>
-						<td>
-							03/04/2012
-						</td>
-						<td>
-							Pending
-						</td>
-					</tr>
-					<tr class="danger">
-						<td>
-							4
-						</td>
-						<td>
-							TB - Monthly
-						</td>
-						<td>
-							04/04/2012
-						</td>
-						<td>
-							Call in to confirm
-						</td>
-					</tr>
+					<?php
+$link = mysqli_connect("localhost","root","peniskopf2")  or die("failed to connect to server !!");
+mysqli_select_db($link,"mealplanner");
+
+$sql = "SELECT * FROM `dayplan_simple`";
+$result = mysqli_query($link,$sql) or die(mysqli_error($link));
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "<tr> 
+                <td>".$row["datum"]."</td>
+                <td>".$row["mittag_nat"]."</td>
+                <td>".$row["mittag_jan"]."</td>
+                <td>".$row["abend_nat"]."</td>
+                <td>".$row["abend_jan"]."</td>
+                </tr>";
+    }
+} else {
+    echo "0 results";
+}
+?>
 				</tbody>
 			</table>
 		</div>
 	</div>
+
+
+
+
+
 	<div class="row">
 		<div class="col-md-12">
 		
