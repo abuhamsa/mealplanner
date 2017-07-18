@@ -19,11 +19,29 @@
 
     <div class="container-fluid">
 	<div class="row">
+  
+</div>
 		<div class="col-md-12">
 			<h2>
 				Essensplan
 			</h2>
 			<p>Das ist ein erster Versuch unser Essensplan online zuführen.</p>
+      
+      <form name="kwselect" action="index.php" method="POST">
+      <select name="kwselect" id="kwselect" onchange="this.form.submit()"class="custom-select">
+        <option selected>Wochenauswahl</option>
+        <?php 
+        $date= date("d.m.y");
+        $kw=date("W",strtotime($date));
+        echo "<option value=\"".($kw-1)."\">KW".($kw-1)." - letzte Woche</option>";
+        echo "<option value=\"".$kw."\">KW".$kw." - aktuelle Woche</option>";
+        echo "<option value=\"".($kw+1)."\">KW".($kw+1)." - nächste Woche</option>";
+        ?>
+      </select>
+      </form>
+      
+
+	
 			<?php include 'showday.php';?>
 		
 			

@@ -2,16 +2,23 @@
 $date= date("d.m.y");
 
 
+
+$year=date("Y",strtotime($date));
+
+if (isset($_POST['kwselect'])){
+$kw=$_POST['kwselect'];}
+else {
 $kw=date("W",strtotime($date));
+}
 
 
 $link = mysqli_connect("localhost","root","peniskopf2")  or die("failed to connect to server !!");
 mysqli_select_db($link,"mealplanner");
 
-$sql = "SELECT * FROM `dayplan_simple` where WEEK (`datum`,3) = $kw order by datum asc";
+$sql = "SELECT * FROM `dayplan_simple` where WEEK(`datum`,3) = $kw and YEAR(`datum`) = $year order by datum asc";
 $result = mysqli_query($link,$sql) or die(mysqli_error($link));
 
-echo "<p>Angezeigte KW ist ".$kw."</p>";
+echo "<p>Angezeigte KW ist ".$kw." von ".$year."</p>";
 ?>
 <table class="table table-striped table-bordered table-hover">
 <thead>
@@ -21,6 +28,7 @@ echo "<p>Angezeigte KW ist ".$kw."</p>";
 						<th>Mittag - Jan</th>
 						<th>Abend - Natü</th>
 						<th>Abend - Jan</th>
+                        <th>Edit</th>
 					</tr>
 				</thead>
 <tbody>
@@ -34,6 +42,7 @@ if ($result->num_rows > 0) {
                 <td>".$row["mittag_jan"]."</td>
                 <td>".$row["abend_nat"]."</td>
                 <td>".$row["abend_jan"]."</td>
+                <td><a href='./editday.php?dayid=".$row["dayplan_s_id"]."'><span class='glyphicon glyphicon-pencil'></span></a></td>
                 </tr>";
     }
 } else {
@@ -45,6 +54,7 @@ if ($result->num_rows > 0) {
                 <td>Keine Daten gefunden</td>
                 <td>Keine Daten gefunden</td>
                 <td>Keine Daten gefunden</td>
+                <td><span class='glyphicon glyphicon-pencil'></span></td>
         </tr>";
         $i++;}
 
