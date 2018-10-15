@@ -12,7 +12,7 @@ $kw=date("W",strtotime($date));
 }
 
 
-$link = mysqli_connect("localhost","root","peniskopf2")  or die("failed to connect to server !!");
+$link = mysqli_connect("localhost","root","jesus_freak")  or die("failed to connect to server !!");
 mysqli_select_db($link,"mealplanner");
 
 $sql = "SELECT * FROM `dayplan_simple` where WEEK(`datum`,3) = $kw and YEAR(`datum`) = $year order by datum asc";
