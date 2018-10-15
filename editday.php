@@ -1,6 +1,6 @@
 <?php require "login/loginheader.php"; 
 
-$link = mysqli_connect("localhost","root","peniskopf2")  or die("failed to connect to server !!");
+$link = mysqli_connect("localhost","root","jesus_freak")  or die("failed to connect to server !!");
 mysqli_select_db($link,"mealplanner");
 
 if (isset($_GET['dayid'])){
