@@ -11,14 +11,19 @@ else {
 $kw=date("W",strtotime($date));
 }
 
+if (isset($_POST['kwyear'])){
+$kwyear=$_POST['kwyear'];}
+else {
+$kwyear=date("Y",strtotime($date));
+}
 
 $link = mysqli_connect("localhost","root","jesus_freak")  or die("failed to connect to server !!");
 mysqli_select_db($link,"mealplanner");
 
-$sql = "SELECT * FROM `dayplan_simple` where WEEK(`datum`,3) = $kw and YEAR(`datum`) = $year order by datum asc";
+$sql = "SELECT * FROM `dayplan_simple` where WEEK(`datum`,3) = $kw and YEAR(`datum`) = $kwyear order by datum asc";
 $result = mysqli_query($link,$sql) or die(mysqli_error($link));
 
-echo "<p>Angezeigte KW ist ".$kw." von ".$year."</p>";
+echo "<p>Angezeigte KW ist ".$kw." von ".$kwyear."</p>";
 ?>
 <table class="table table-striped table-bordered table-hover">
 <thead>
