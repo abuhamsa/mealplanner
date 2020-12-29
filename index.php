@@ -41,7 +41,7 @@
       </select>
 	  <?php 
 	  $kwyear=date("Y",strtotime($date));
-	  if ($kw = 53) {echo "<inpute name=\"kwyear\" value=\"".($kwyear+1)."\"/>";} ?>
+	  if ($kw = 53) {echo "<input name=\"kwyear\" value=\"".($kwyear+1)."\"/>";} ?>
       </form>
       
 
