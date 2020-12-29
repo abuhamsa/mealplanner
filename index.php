@@ -35,13 +35,9 @@
         $kw=date("W",strtotime($date));
         echo "<option value=\"".($kw-1)."\">KW".($kw-1)." - letzte Woche</option>";
         echo "<option value=\"".$kw."\">KW".$kw." - aktuelle Woche</option>";
-        if ($kw = 53) {echo "<option value=\"".(01)."\">KW".(01)." - nächste Woche</option>";}
-        else {echo "<option value=\"".($kw+1)."\">KW".($kw+1)." - nächste Woche</option>";}
+		echo "<option value=\"".($kw+1)."\">KW".($kw+1)." - nächste Woche</option>";}
         ?>
       </select>
-	  <?php 
-	  $kwyear=date("Y",strtotime($date));
-	  if ($kw = 53) {echo "<input name=\"kwyear\" value=\"".($kwyear+1)."\"/>";} ?>
       </form>
       
 
