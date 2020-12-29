@@ -25,7 +25,7 @@
 			<h2>
 				Essensplan
 			</h2>
-			<p>Das ist ein erster Versuch unser Essensplan online zufÃ¼hren.</p>
+			<p>Das ist ein erster Versuch unser Essensplan online zuführen.</p>
       
       <form name="kwselect" action="index.php" method="POST">
       <select name="kwselect" id="kwselect" onchange="this.form.submit()"class="custom-select">
@@ -35,15 +35,13 @@
         $kw=date("W",strtotime($date));
         echo "<option value=\"".($kw-1)."\">KW".($kw-1)." - letzte Woche</option>";
         echo "<option value=\"".$kw."\">KW".$kw." - aktuelle Woche</option>";
-        if ($kw = 53) {echo "<option value=\"".(01)."\">KW".(01)." - nÃ¤chste Woche</option>";
-		echo "<inpute name=\"kwyear\" value=\"".(date("Y",strtotime($date))+1)."\"/>";
-        }
-        else {echo "<option value=\"".($kw+1)."\">KW".($kw+1)." - nÃ¤chste Woche</option>";}
-        
-        
-        
+        if ($kw = 53) {echo "<option value=\"".(01)."\">KW".(01)." - nächste Woche</option>";}
+        else {echo "<option value=\"".($kw+1)."\">KW".($kw+1)." - nächste Woche</option>";}
         ?>
       </select>
+	  <?php 
+	  $kwyear=date("Y",strtotime($date));
+	  if ($kw = 53) {echo "<inpute name=\"kwyear\" value=\"".($kwyear+1)."\"/>";} ?>
       </form>
       
 
