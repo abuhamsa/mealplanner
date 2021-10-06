@@ -1,5 +1,6 @@
 <?php require "login/loginheader.php";
-$link = mysqli_connect("localhost","root","jesus_freak")  or die("failed to connect to server !!");
+require "login/dbconf.php";
+$link = mysqli_connect($host,$username,$password)  or die("failed to connect to server !!");
 mysqli_select_db($link,"mealplanner");
 if(isset($_REQUEST['submit']))
 {

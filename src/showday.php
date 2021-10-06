@@ -1,4 +1,5 @@
 <?php require "login/loginheader.php";
+require "login/dbconf.php";
 $date= date("d.m.y");
 
 
@@ -17,7 +18,7 @@ else {
 $kwyear=date("Y",strtotime($date));
 }
 
-$link = mysqli_connect("localhost","root","jesus_freak")  or die("failed to connect to server !!");
+$link = mysqli_connect($host,$username,$password)  or die("failed to connect to server !!");
 mysqli_select_db($link,"mealplanner");
 
 $sql = "SELECT * FROM `dayplan_simple` where WEEK(`datum`,3) = $kw and YEAR(`datum`) = $kwyear order by datum asc";

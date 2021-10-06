@@ -1,0 +1,8 @@
+version: "3.2"
+services:
+ mealplanner:
+  build: . 
+  ports:
+  - "30001:80"
+  env_file:
+    - .env
