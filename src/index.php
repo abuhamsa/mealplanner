@@ -23,7 +23,7 @@
 </div>
 		<div class="col-md-12">
 			<h2>
-				Essensplan
+				Essensplan - <?php echo gethostname();?>
 			</h2>
 			<p>Das ist ein erster Versuch unser Essensplan online zuführen.</p>
       
