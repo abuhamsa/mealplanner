@@ -1,14 +1,15 @@
 <?php require "login/loginheader.php";
 require "login/dbconf.php";
 $date= date("d.m.y");
-
-
-
 $year=date("Y",strtotime($date));
 
-if (isset($_POST['kwselect'])){
-$kw=$_POST['kwselect'];
-$kwyear=$_POST['yearselect'];}
+if (isset($_POST['year_week'])){
+$year_week=$_POST['year_week'];
+
+$kwyear=substr($year_week,0,4);
+$kw=substr($year_week,6,8);
+
+}
 else {
 $kw=date("W",strtotime($date));
 $kwyear=date("Y",strtotime($date));
