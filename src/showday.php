@@ -7,16 +7,20 @@ $date= date("d.m.y");
 $year=date("Y",strtotime($date));
 
 if (isset($_POST['kwselect'])){
-$kw=$_POST['kwselect'];}
+$kw=$_POST['kwselect'];
+$kwyear=$_POST['yearselect'];}
 else {
 $kw=date("W",strtotime($date));
+$kwyear=date("Y",strtotime($date));
 }
 
+/*
 if (isset($_POST['kwyear'])){
 $kwyear=$_POST['kwyear'];}
 else {
 $kwyear=date("Y",strtotime($date));
 }
+*/
 
 $link = mysqli_connect($host,$username,$password)  or die("failed to connect to server !!");
 mysqli_select_db($link,"mealplanner");
