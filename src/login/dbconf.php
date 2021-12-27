@@ -9,4 +9,4 @@ $db_name = getenv('MYSQL_DATABASE', true) ?: getenv('MYSQL_DATABASE'); // Databa
 
 $tbl_prefix = ""; //***PLANNED FEATURE, LEAVE VALUE BLANK FOR NOW*** Prefix for all database tables
 $tbl_members = $tbl_prefix."members";
-$tbl_attempts = $tbl_prefix."loginAttempts";
+$tbl_attempts = $tbl_prefix."loginattempts";
