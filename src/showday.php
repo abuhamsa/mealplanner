@@ -1,4 +1,4 @@
-<?php require "login/loginheader.php";
+<?php 
 require "login/dbconf.php";
 $date= date("d.m.y");
 $year=date("Y",strtotime($date));

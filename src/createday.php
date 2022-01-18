@@ -1,4 +1,4 @@
-<?php require "login/loginheader.php"; ?>
+
 <html lang="de">
   <head>
     <meta charset="utf-8">
