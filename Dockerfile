@@ -1,4 +1,4 @@
-FROM php:5.6-apache-stretch
+FROM php:8.1.1-apache
 WORKDIR /var/www/html
 
 COPY src/ /var/www/html
