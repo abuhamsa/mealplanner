@@ -50,6 +50,9 @@
         <button name="Create" id="create" class="btn btn-lg btn-success btn-block" type="create">Neuen Tag erfassen</button>
       </form>
 </div>
+<div class="container-fluid createnewday">
+<p> Version: 0.4.0</p>
+</div>
 
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
