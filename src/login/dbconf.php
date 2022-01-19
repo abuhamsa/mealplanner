@@ -5,6 +5,10 @@ $username = getenv('MYSQL_USER', true) ?: getenv('MYSQL_USER'); // Mysql usernam
 $password = getenv('MYSQL_PASSWORD', true) ?: getenv('MYSQL_PASSWORD'); // Mysql password
 $db_name = getenv('MYSQL_DATABASE', true) ?: getenv('MYSQL_DATABASE'); // Database name
 
+//SETTING PEROSN VARIABLES
+$person1 = getenv('PERSON1', true) ?: getenv('PERSON1'); 
+$person1 = getenv('PERSON2', true) ?: getenv('PERSON2'); 
+
 //DO NOT CHANGE BELOW THIS LINE UNLESS YOU CHANGE THE NAMES OF THE MEMBERS AND LOGINATTEMPTS TABLES
 
 $tbl_prefix = ""; //***PLANNED FEATURE, LEAVE VALUE BLANK FOR NOW*** Prefix for all database tables

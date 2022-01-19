@@ -33,36 +33,36 @@
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-1 control-label" for="mittag_n">Mittag Natü</label>  
+  <label class="col-md-1 control-label" for="mittag_n">Mittag <?php echo .$person1.?></label>  
   <div class="col-md-4">
-  <input id="mittag_n" name="mittag_n" type="text" placeholder="Mittag Natü" class="form-control input-md" required="">
+  <input id="mittag_n" name="mittag_n" type="text" <?php echo "placeholder=\"Mittag ".$person1."\"" ?> class="form-control input-md" required="">
     
   </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-1 control-label" for="mittag_j">Mittag Jan</label>  
+  <label class="col-md-1 control-label" for="mittag_j">Mittag <?php echo .$person2.?></label>  
   <div class="col-md-4">
-  <input id="mittag_j" name="mittag_j" type="text" placeholder="Mittag Jan" class="form-control input-md" required="">
+  <input id="mittag_j" name="mittag_j" type="text" <?php echo "placeholder=\"Mittag ".$person2."\"" ?> class="form-control input-md" required="">
     
   </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-1 control-label" for="abend_n">Abend Natü</label>  
+  <label class="col-md-1 control-label" for="abend_n">Abend <?php echo .$person1.?></label>  
   <div class="col-md-4">
-  <input id="abend_n" name="abend_n" type="text" placeholder="Abend Natü" class="form-control input-md" required="">
+  <input id="abend_n" name="abend_n" type="text" <?php echo "placeholder=\"Abend ".$person1."\"" ?> class="form-control input-md" required="">
     
   </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-1 control-label" for="abend_j">Abend Jan</label>  
+  <label class="col-md-1 control-label" for="abend_j">Abend <?php echo .$person2.?></label>  
   <div class="col-md-4">
-  <input id="abend_j" name="abend_j" type="text" placeholder="Abend Jan" class="form-control input-md" required="">
+  <input id="abend_j" name="abend_j" type="text" <?php echo "placeholder=\"Abend ".$person2."\"" ?> class="form-control input-md" required="">
     
   </div>
 </div>
