@@ -2,7 +2,6 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 192.168.1.10:3306
 -- Erstellungszeit: 19. Jan 2022 um 11:50
 -- Server-Version: 5.5.68-MariaDB
 -- PHP-Version: 7.4.26
