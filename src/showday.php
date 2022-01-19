@@ -29,18 +29,18 @@ mysqli_select_db($link,"mealplanner");
 $sql = "SELECT * FROM `dayplan_simple` where WEEK(`datum`,3) = $kw and YEAR(`datum`) = $kwyear order by datum asc";
 $result = mysqli_query($link,$sql) or die(mysqli_error($link));
 
-echo "<p>Angezeigte KW ist ".$kw." von ".$kwyear."</p>";
+echo "<p>Angezeigte KW ist ".$kw." von ".$kwyear."</p>"; ?>
 
 <table class="table table-striped table-bordered table-hover">
-?>
+
 <thead>
 					<tr>
 						<th>Datum</th>
                         <?php
-						echo "<th>Mittag - ".$person1."</th>"
-						echo "<th>Mittag - ".$person2."</th>"
-						echo "<th>Abend - ".$person1."</th>"
-						echo "<th>Abend - ".$person2."</th>"
+						echo "<th>Mittag - ".$person1."</th>";
+						echo "<th>Mittag - ".$person2."</th>";
+						echo "<th>Abend - ".$person1."</th>";
+						echo "<th>Abend - ".$person2."</th>";
                         ?>
                         <th>Edit</th>
 					</tr>

@@ -7,7 +7,7 @@ $db_name = getenv('MYSQL_DATABASE', true) ?: getenv('MYSQL_DATABASE'); // Databa
 
 //SETTING PEROSN VARIABLES
 $person1 = getenv('PERSON1', true) ?: getenv('PERSON1'); 
-$person1 = getenv('PERSON2', true) ?: getenv('PERSON2'); 
+$person2 = getenv('PERSON2', true) ?: getenv('PERSON2'); 
 
 //DO NOT CHANGE BELOW THIS LINE UNLESS YOU CHANGE THE NAMES OF THE MEMBERS AND LOGINATTEMPTS TABLES
 
