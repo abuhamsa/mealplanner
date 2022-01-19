@@ -1,4 +1,4 @@
-<?php require "login/loginheader.php";
+<?php 
 require "login/dbconf.php";
 $link = mysqli_connect($host,$username,$password)  or die("failed to connect to server !!");
 mysqli_select_db($link,"mealplanner");
