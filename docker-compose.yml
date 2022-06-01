@@ -6,3 +6,7 @@ services:
   - "30001:80"
   env_file:
     - .env
+networks:
+  default:
+    name: mealplanner
+    external: true

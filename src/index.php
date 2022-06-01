@@ -16,7 +16,7 @@
 
   </head>
   <body>
-
+  
     <div class="container-fluid">
 	<div class="row">
   
@@ -28,21 +28,35 @@
 			<p>Das ist ein erster Versuch unser Essensplan online zuführen.</p>
       
       <form name="kwselect" action="index.php" method="POST">
-      <input id="year_week" type="week" name="year_week" onchange="this.form.submit()">  
-      </form>
-       
-      
-      
+        
+        <div class="nativeWeekPicker">
+        <input id="year_week" type="week" name="year_week" onchange="this.form.submit()">  
+        </div>
+        <div class="fallbackWeekPicker">
+          <div>
+            <span>
+              <label for="week">Woche:</label>
+              <select id="fallbackWeek" name="week">
+              </select>
+            </span>
+            <span>
+              <label for="year">Year:</label>
+              <select id="year" name="year">
+                <option value="2022" selected>2022</option>
+                <option value="2021">2021</option>
+              </select>
+            </span>
+          </div>
+        </div>
 
-	
+      </form>
+
 			<?php include 'showday.php';?>
-		
-			
+
 		</div>
 	</div>
 
 	
-	</div>
 	<div class="container-fluid createnewday">
 
       <form class="createnewday" name="createnewdayform" method="post" action="createday.php">
@@ -53,9 +67,9 @@
 <div class="container-fluid createnewday">
 <p> Version: 0.4.0</p>
 </div>
-
+    <script src="js/scripts.js"></script> 
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/scripts.js"></script>
+    
   </body>
 </html>
