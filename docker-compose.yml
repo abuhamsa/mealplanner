@@ -1,8 +1,27 @@
 version: "3.2"
 services:
- mealplanner:
-  build: . 
-  ports:
-  - "30001:80"
-  env_file:
-    - .env
+  mealplanner:
+    build: . 
+    ports:
+      - "30001:80"
+    env_file:
+      - .env   
+  mariadb:
+    image: lscr.io/linuxserver/mariadb:latest
+    container_name: mariadb
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - MYSQL_ROOT_PASSWORD=ROOT_ACCESS_PASSWORD
+      - TZ=Europe/Zurich
+    volumes:
+      - C:\Users\reberja\DOCKER_VOLUMES\appdata\mariadb:/config
+    ports:
+      - 3306:3306
+    restart: unless-stopped
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
