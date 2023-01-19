@@ -1,35 +1,26 @@
 <?php 
 require "login/dbconf.php";
-$date= date("d.m.y");
-$year=date("Y",strtotime($date));
 
-if (isset($_POST['year_week'])){
-$year_week=$_POST['year_week'];
-
-$kwyear=substr($year_week,0,4);
-$kw=substr($year_week,6,8);
+if (isset($_POST['startDate']) && isset($_POST['endDate'])){
+$startDate=$_POST['startDate'];
+$endDate=$_POST['endDate'];
 
 }
 else {
-$kw=date("W",strtotime($date));
-$kwyear=date("Y",strtotime($date));
+$day = date('w');
+$startDate = date('Y-m-d', strtotime('-'.($day-1).' days'));
+$endDate = date('Y-m-d', strtotime('+'.(7-$day).' days'));
 }
 
-/*
-if (isset($_POST['kwyear'])){
-$kwyear=$_POST['kwyear'];}
-else {
-$kwyear=date("Y",strtotime($date));
-}
-*/
+
 
 $link = mysqli_connect($host,$username,$password)  or die("failed to connect to server !!");
 mysqli_select_db($link,"mealplanner");
 
-$sql = "SELECT * FROM `dayplan_simple` where WEEK(`datum`,3) = $kw and YEAR(`datum`) = $kwyear order by datum asc";
+$sql = "SELECT * FROM `dayplan_simple` where datum between '$startDate' AND '$endDate' order by datum asc";
 $result = mysqli_query($link,$sql) or die(mysqli_error($link));
 
-echo "<p>Angezeigte KW ist ".$kw." von ".$kwyear."</p>"; ?>
+echo "<p>Angezeigter Zeitraum ist ".$startDate." von ".$endDate."</p>"; ?>
 
 <table class="table table-striped table-bordered table-hover">
 

@@ -1,81 +1,65 @@
-<?php 
-require "login/dbconf.php";
-$date= date("d.m.y");
-$year=date("Y",strtotime($date));
 
-if (isset($_POST['year_week'])){
-$year_week=$_POST['year_week'];
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-$kwyear=substr($year_week,0,4);
-$kw=substr($year_week,6,8);
+    <title>Mealplanner</title>
 
-}
-else {
-$kw=date("W",strtotime($date));
-$kwyear=date("Y",strtotime($date));
-}
+    <meta name="description" content="Source code generated using layoutit.com">
+    <meta name="author" content="LayoutIt!">
 
-/*
-if (isset($_POST['kwyear'])){
-$kwyear=$_POST['kwyear'];}
-else {
-$kwyear=date("Y",strtotime($date));
-}
-*/
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 
-$link = mysqli_connect($host,$username,$password)  or die("failed to connect to server !!");
-mysqli_select_db($link,"mealplanner");
+  </head>
+  <body>
 
-//$sql = "SELECT * FROM `dayplan_simple` where WEEK(`datum`,3) = $kw and YEAR(`datum`) = $kwyear order by datum asc";
-$sql = "SELECT * FROM `dayplan_simple` where datum between '2022-12-01' AND '2023-01-05'order by datum asc";
-$result = mysqli_query($link,$sql) or die(mysqli_error($link));
+    <div class="container-fluid">
+	<div class="row">
+  
+</div>
+		<div class="col-md-12">
+			<h2>
+				Essensplan - <?php echo gethostname();?>
+			</h2>
+			<p>Das ist ein erster Versuch unser Essensplan online zuführen.</p>
+    
+      <form name="kwselect" id=weekform action="index.php" method="POST">
+        <input type="text" class="form-control" id="weekpicker" name="year_week">
+        <input type="submit" name="submit" class="button" id="submit_btn" value="Send" />
+      </form>
 
-echo "<p>Angezeigte KW ist ".$kw." von ".$kwyear."</p>"; ?>
+       
+      
+      
 
-<table class="table table-striped table-bordered table-hover">
+      <?php include 'showday.php';?>
+			
+		
+			
+		</div>
+	</div>
 
-<thead>
-					<tr>
-						<th>Datum</th>
-                        <?php
-						echo "<th>Mittag - ".$person1."</th>";
-						echo "<th>Mittag - ".$person2."</th>";
-						echo "<th>Abend - ".$person1."</th>";
-						echo "<th>Abend - ".$person2."</th>";
-                        ?>
-                        <th>Edit</th>
-					</tr>
-				</thead>
-<tbody>
-<?php
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "<tr> 
-                <td>".date("D, d.m.y",strtotime($row["datum"]))."</td>
-                <td>".$row["mittag_nat"]."</td>
-                <td>".$row["mittag_jan"]."</td>
-                <td>".$row["abend_nat"]."</td>
-                <td>".$row["abend_jan"]."</td>
-                <td><a href='./editday.php?dayid=".$row["dayplan_s_id"]."'><span class='glyphicon glyphicon-pencil'></span></a></td>
-                </tr>";
-    }
-} else {
-    $i = 0;
-    while ($i < 7){
-        echo "  <tr> 
-                <td>Keine Daten gefunden</td>
-                <td>Keine Daten gefunden</td>
-                <td>Keine Daten gefunden</td>
-                <td>Keine Daten gefunden</td>
-                <td>Keine Daten gefunden</td>
-                <td><span class='glyphicon glyphicon-pencil'></span></td>
-        </tr>";
-        $i++;}
+	
+	</div>
+	<div class="container-fluid createnewday">
 
+      <form class="createnewday" name="createnewdayform" method="post" action="createday.php">
+        
+        <button name="Create" id="create" class="btn btn-lg btn-success btn-block" type="create">Neuen Tag erfassen</button>
+      </form>
+</div>
+<div class="container-fluid createnewday">
+<p> Version: 0.5.0</p>
+</div>
 
-}
-?>
-
-				</tbody>
-			</table>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-datepicker.min.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
