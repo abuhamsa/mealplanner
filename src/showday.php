@@ -47,7 +47,7 @@ if ($result->num_rows > 0) {
                 <td>".$row["mittag_jan"]."</td>
                 <td>".$row["abend_nat"]."</td>
                 <td>".$row["abend_jan"]."</td>
-                <td><a href='./editday.php?dayid=".$row["dayplan_s_id"]."'><i class="bi bi-pencil-square"></i></a></td>
+                <td><a href='./editday.php?dayid=".$row["dayplan_s_id"]."'><i class='bi bi-pencil-square'></i></a></td>
                 </tr>";
     }
 } else {
