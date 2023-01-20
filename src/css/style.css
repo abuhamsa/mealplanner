@@ -9,3 +9,16 @@
     background: #e5e2e3;
     border-radius: 0;
 } 
+
+.form-group {
+    width: 60%; /* or any value you want */
+    font-size: 0.9em; /* or any value you want */
+  }
+
+.input-group {
+    width: 50%; /* or any value you want */
+    font-size: 0.9em; /* or any value you want */
+  }
+
+
+  
