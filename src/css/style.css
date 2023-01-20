@@ -11,12 +11,12 @@
 } 
 
 .form-group {
-    width: 60%; /* or any value you want */
+    width: 100%; /* or any value you want */
     font-size: 0.9em; /* or any value you want */
   }
 
 .input-group {
-    width: 50%; /* or any value you want */
+    width: 60%; /* or any value you want */
     font-size: 0.9em; /* or any value you want */
   }
 
