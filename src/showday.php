@@ -1,81 +1,71 @@
+<?php 
+require "login/dbconf.php";
 
-<!DOCTYPE html>
-<html lang="de">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+if (isset($_POST['startDate']) && isset($_POST['endDate'])){
+$startDate=$_POST['startDate'];
+$endDate=$_POST['endDate'];
 
-    <title>Mealplanner</title>
-
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap-datepicker.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    <link href="css/style.css" rel="stylesheet">
-
-  </head>
-  <body>
-
-  <div class="container-fluid">
-	  <div class="row">
-    </div>
-
-		<div class="col-md-12">
-			<h2>
-				Essensplan - <?php echo gethostname();?>
-			</h2>
-			<p>Das ist ein erster Versuch unser Essensplan online zuführen.</p>
-      
-          
-        
-          
-        
-          <div class="form-group">
-            <form name="kwselect" id=weekform action="index.php" method="POST">
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text">
-                  <i class="bi bi-calendar2-week"></i>
-                </span>
-              </div>
-            <input type="text" class="form-control" id="weekpicker" name="year_week">
-              <div class="input-group-append mx-2">
-                <button name="date_submit" id="date_submit" class="btn btn-primary" type="date_submit">Send</button>
-              </div>
-            </div>
-            </form>  
-          </div>
+}
+else {
+$day = date('w');
+$startDate = date('Y-m-d', strtotime('-'.($day-1).' days'));
+$endDate = date('Y-m-d', strtotime('+'.(7-$day).' days'));
+}
 
 
-       
-      
-      
 
-      <?php include 'showday.php';?>
-			
-		
-			
-		</div>
-	</div>
+$link = mysqli_connect($host,$username,$password)  or die("failed to connect to server !!");
+mysqli_select_db($link,"mealplanner");
 
-	
-	
-	<div class="container-fluid createnewday">
+$sql = "SELECT * FROM `dayplan_simple` where datum between '$startDate' AND '$endDate' order by datum asc";
+$result = mysqli_query($link,$sql) or die(mysqli_error($link));
 
-      <form class="createnewday" name="createnewdayform" method="post" action="createday.php">
-        
-        <button name="Create" id="create" class="btn btn-lg btn-success btn-block" type="create">Neuen Tag erfassen</button>
-      </form>
-  </div>
+echo "<p>Angezeigter Zeitraum ist ".$startDate." von ".$endDate."</p>"; ?>
 
-<div class="container-fluid createnewday">
-  <p> Version: 0.5.0</p>
-</div>
+<table class="table table-striped table-bordered table-hover">
 
-    <script src="js/jquery.slim.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/bootstrap-datepicker.min.js"></script>
-    <script src="js/bootstrap-datepicker.js"></script>
-    <script src="js/scripts.js"></script>
-  </body>
-</html>
+<thead>
+					<tr>
+						<th>Datum</th>
+                        <?php
+						echo "<th>Mittag - ".$person1."</th>";
+						echo "<th>Mittag - ".$person2."</th>";
+						echo "<th>Abend - ".$person1."</th>";
+						echo "<th>Abend - ".$person2."</th>";
+                        ?>
+                        <th>Edit</th>
+					</tr>
+				</thead>
+<tbody>
+<?php
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "<tr> 
+                <td>".date("D, d.m.y",strtotime($row["datum"]))."</td>
+                <td>".$row["mittag_nat"]."</td>
+                <td>".$row["mittag_jan"]."</td>
+                <td>".$row["abend_nat"]."</td>
+                <td>".$row["abend_jan"]."</td>
+                <td><a href='./editday.php?dayid=".$row["dayplan_s_id"]."'><i class="bi bi-pencil-square"></i></a></td>
+                </tr>";
+    }
+} else {
+    $i = 0;
+    while ($i < 7){
+        echo "  <tr> 
+                <td>Keine Daten gefunden</td>
+                <td>Keine Daten gefunden</td>
+                <td>Keine Daten gefunden</td>
+                <td>Keine Daten gefunden</td>
+                <td>Keine Daten gefunden</td>
+                <td><span class='glyphicon glyphicon-pencil'></span></td>
+        </tr>";
+        $i++;}
+
+
+}
+?>
+
+				</tbody>
+			</table>
